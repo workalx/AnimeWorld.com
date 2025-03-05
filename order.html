@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замовити сайт</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .order-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: var(--dark-bg);
+        }
+
+        .order-content {
+            background: var(--dark-surface);
+            padding: 3rem;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid var(--border-glow);
+            box-shadow: var(--neon-shadow);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .order-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: var(--gradient-1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .order-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        .order-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .order-button {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            min-width: 250px;
+        }
+
+        .order-button svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .order-button.telegram {
+            background: #0088cc;
+        }
+
+        .order-button.email {
+            background: #ea4335;
+        }
+
+        .order-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 1rem;
+            background: var(--dark-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--neon-shadow);
+        }
+
+        .back-button svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <a href="index.html" class="back-button">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Назад
+        </a>
+        <div class="order-content">
+            <h1 class="order-title">Замовити сайт</h1>
+            <p class="order-description">
+                Оберіть зручний для вас спосіб зв'язку, і я допоможу вам створити сучасний та красивий сайт, 
+                який відповідатиме всім вашим потребам та побажанням.
+            </p>
+            <div class="order-buttons">
+                <a href="https://t.me/sanjakh" target="_blank" class="order-button telegram">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9.417 15.181l-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.725.267 1.998-.931l3.622-16.972.001-.001c.321-1.496-.541-2.081-1.527-1.714l-21.29 8.151c-1.453.564-1.431 1.374-.247 1.741l5.443 1.693 12.643-7.911c.595-.394 1.136-.176.691.218z"/>
+                    </svg>
+                    Замовити через Telegram
+                </a>
+                <a href="mailto:alexwork201006@gmail.com" class="order-button email">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    Замовити через Email
+                    <div class="order-email-block">
+                        alexwork201006@gmail.com
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailButton = document.querySelector('.order-button.email');
+            const emailBlock = document.querySelector('.order-email-block');
+            let isEmailFixed = false;
+
+            emailButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (!isEmailFixed) {
+                    emailBlock.classList.add('fixed');
+                    isEmailFixed = true;
+                } else {
+                    emailBlock.classList.remove('fixed');
+                    isEmailFixed = false;
+                }
+            });
+
+            // Закриваємо фіксований блок email при кліку на будь-яку частину сайту
+            document.addEventListener('click', function(e) {
+                if (isEmailFixed && !emailBlock.contains(e.target) && e.target !== emailButton) {
+                    emailBlock.classList.remove('fixed');
+                    isEmailFixed = false;
+                }
+            });
+
+            // Запобігаємо закриттю при кліку на сам блок
+            emailBlock.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html> 

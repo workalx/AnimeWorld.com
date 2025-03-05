@@ -1,0 +1,1534 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #00e676;
+    --primary-dark: #00c853;
+    --primary-light: #69f0ae;
+    --dark-bg: #0D1117;
+    --dark-surface: #161B22;
+    --dark-surface-2: #21262D;
+    --text-primary: #F0F6FC;
+    --text-secondary: #8B949E;
+    --accent-glow: rgba(0, 230, 118, 0.15);
+    --gradient-1: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+    --gradient-2: linear-gradient(45deg, rgba(0, 230, 118, 0.1) 0%, rgba(0, 200, 83, 0.1) 100%);
+    --neon-shadow: 0 0 20px rgba(0, 230, 118, 0.2);
+    --border-glow: rgba(0, 230, 118, 0.3);
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.sidebar {
+    background: var(--dark-surface);
+    padding: 2rem;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 2rem;
+    height: calc(100vh - 4rem);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glow);
+    box-shadow: var(--neon-shadow);
+}
+
+.logo {
+    margin-bottom: 3rem;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: transparent;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    background: var(--gradient-1);
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(15px);
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 
+        0 0 25px var(--primary-color),
+        inset 0 0 25px var(--primary-color);
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    mix-blend-mode: normal;
+    background: transparent;
+    z-index: 2;
+    position: relative;
+}
+
+.nav-menu {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.nav-menu ul {
+    list-style: none;
+    width: 100%;
+}
+
+.nav-menu li {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.nav-menu a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    display: block;
+    transition: all 0.3s ease;
+    background: var(--gradient-2);
+    border: 1px solid transparent;
+}
+
+.nav-menu a:hover {
+    background: var(--dark-surface);
+    border-color: var(--primary-color);
+    transform: translateX(10px);
+    box-shadow: var(--neon-shadow);
+}
+
+.main-content {
+    background: var(--dark-surface);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border-glow);
+    box-shadow: var(--neon-shadow);
+    padding: 3rem 3rem 0 3rem;
+}
+
+.anime-info {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    position: relative;
+    background: var(--dark-surface-2);
+    align-items: start;
+    border-radius: 24px;
+    padding: 3rem;
+    border: 1px solid var(--border-glow);
+    box-shadow: var(--neon-shadow);
+    margin-bottom: 3rem;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+}
+
+.anime-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    height: fit-content;
+    display: flex;
+    margin-left: 0;
+}
+
+.anime-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
+
+.anime-image img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: initial;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.anime-image:hover img {
+    transform: scale(1.05);
+}
+
+.anime-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.anime-details h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--gradient-1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.info-item {
+    background: var(--dark-surface-2);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-glow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: var(--neon-shadow);
+}
+
+.info-item:hover::before {
+    opacity: 0.1;
+}
+
+.info-item h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    background: var(--dark-surface-2);
+    padding: 2rem;
+    border-radius: 16px;
+    position: relative;
+    border: 1px solid var(--border-glow);
+    box-shadow: var(--neon-shadow);
+}
+
+.description h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    position: relative;
+}
+
+.description h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-1);
+    opacity: 0.5;
+}
+
+.description p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.video-section {
+    margin: 0;
+    padding: 2rem;
+    background: var(--dark-surface-2);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-2);
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.video-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, 
+        var(--primary-color) 0%,
+        transparent 100%);
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.video-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.video-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-1);
+    opacity: 0.5;
+}
+
+.video-section video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-radius: 16px;
+    box-shadow: var(--neon-shadow);
+    border: 2px solid var(--border-glow);
+    transition: all 0.3s ease;
+    object-fit: contain;
+    background: var(--dark-surface-2);
+    position: relative;
+    z-index: 2;
+    filter: contrast(1.1) brightness(1.1);
+}
+
+.video-section video:hover {
+    transform: translateY(-5px) scale(1.01);
+    border-color: var(--primary-color);
+    box-shadow: 
+        0 0 30px rgba(0, 230, 118, 0.3),
+        0 0 60px rgba(0, 230, 118, 0.1);
+    filter: contrast(1.2) brightness(1.2);
+}
+
+/* Стилізація елементів керування відео */
+.video-section video::-webkit-media-controls {
+    background: var(--dark-surface);
+    border-radius: 12px;
+}
+
+.video-section video::-webkit-media-controls-panel {
+    background: linear-gradient(to top,
+        var(--dark-surface) 0%,
+        var(--dark-surface-2) 100%);
+}
+
+.video-section video::-webkit-media-controls-play-button {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.video-section video::-webkit-media-controls-timeline {
+    background-color: var(--dark-surface-2);
+}
+
+.video-section video::-webkit-media-controls-current-time-display,
+.video-section video::-webkit-media-controls-time-remaining-display {
+    color: var(--primary-color);
+}
+
+.video-section video::-webkit-media-controls-volume-slider {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    padding: 0 5px;
+}
+
+/* Додаємо неонову рамку навколо відео */
+.video-wrapper {
+    position: relative;
+    width: 80%;
+    padding: 0;
+    background: var(--dark-surface-2);
+    cursor: pointer;
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Додаємо стилі для повноекранного режиму */
+.video-wrapper:fullscreen {
+    padding: 0;
+    background: none;
+    border-radius: 0;
+}
+
+.video-wrapper:fullscreen video {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    margin: 0;
+    object-fit: cover;
+    background: black;
+}
+
+.video-wrapper:fullscreen::before {
+    display: none;
+}
+
+.video-wrapper:fullscreen .video-controls {
+    border-radius: 0;
+}
+
+/* Додаємо підтримку для різних браузерів */
+.video-wrapper:-webkit-full-screen {
+    padding: 0;
+    background: none;
+    border-radius: 0;
+}
+
+.video-wrapper:-webkit-full-screen video {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    margin: 0;
+    object-fit: cover;
+    background: black;
+}
+
+.video-wrapper:-webkit-full-screen::before {
+    display: none;
+}
+
+.video-wrapper:-webkit-full-screen .video-controls {
+    border-radius: 0;
+}
+
+.video-wrapper:-moz-full-screen {
+    padding: 0;
+    background: none;
+    border-radius: 0;
+}
+
+.video-wrapper:-moz-full-screen video {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    margin: 0;
+    object-fit: cover;
+    background: black;
+}
+
+.video-wrapper:-moz-full-screen::before {
+    display: none;
+}
+
+.video-wrapper:-moz-full-screen .video-controls {
+    border-radius: 0;
+}
+
+.video-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-1);
+    border-radius: 10px;
+    filter: blur(10px);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+    background: var(--dark-surface-2);
+}
+
+.video-wrapper video[poster] {
+    object-fit: cover;
+}
+
+.video-wrapper .video-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    transition: all 0.5s ease;
+    filter: brightness(0.8);
+    border-radius: 10px;
+}
+
+.video-wrapper .video-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.video-wrapper:hover .video-preview {
+    filter: brightness(1);
+    transform: scale(1.05);
+}
+
+.video-wrapper.playing .video-preview {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+}
+
+/* Приховуємо стандартні елементи керування */
+.video-wrapper video::-webkit-media-controls {
+    display: none !important;
+}
+
+/* Кастомні елементи керування */
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
+    padding: 20px;
+    z-index: 3;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Показуємо контроли при наведенні миші */
+.video-wrapper:hover .video-controls {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.progress-bar:hover {
+    height: 8px;
+}
+
+.video-controls-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.video-wrapper:hover .video-controls,
+.video-wrapper:hover .play-button {
+    opacity: 1;
+}
+
+.video-wrapper.controls-hidden .video-controls,
+.video-wrapper.controls-hidden .play-button {
+    opacity: 0;
+}
+
+.video-wrapper.controls-hidden {
+    cursor: none;
+}
+
+.left-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.time-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    background: transparent;
+    padding: 5px;
+}
+
+/* Кнопка відтворення */
+.play-button {
+    width: 80px;
+    height: 80px;
+    border: none;
+    background: rgba(0, 230, 118, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.8;
+    backdrop-filter: blur(5px);
+    z-index: 3;
+}
+
+.play-button::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+    border-color: transparent transparent transparent var(--primary-color);
+    margin-left: 5px;
+    filter: drop-shadow(0 0 5px rgba(0, 230, 118, 0.5));
+}
+
+/* Показуємо кнопку відтворення за замовчуванням */
+.video-wrapper .play-button {
+    display: flex !important;
+    opacity: 0.8;
+}
+
+/* Приховуємо кнопку відтворення тільки коли відео активно відтворюється */
+.video-wrapper.playing .play-button {
+    display: none !important;
+}
+
+/* Видаляємо всі інші стилі для кнопки відтворення */
+.video-wrapper.paused .play-button,
+.video-wrapper:hover .play-button,
+.video-wrapper.controls-hidden .play-button {
+    display: flex !important;
+    opacity: 0.8;
+}
+
+/* Видаляємо конфліктуючий стиль */
+.video-wrapper.paused .play-button {
+    display: flex !important;
+}
+
+.progress {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0;
+    transition: width 0.1s linear;
+    position: relative;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    transform: translate(0, -50%) scale(0);
+    transition: transform 0.2s ease;
+}
+
+.progress-bar:hover .progress::after {
+    transform: translate(0, -50%) scale(1);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+
+.volume-button {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.volume-button:hover {
+    transform: scale(1.1);
+}
+
+.volume-slider {
+    width: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 3px;
+    position: relative;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.volume-control:hover .volume-slider {
+    width: 80px;
+}
+
+.volume-level {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.fullscreen-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(0,0,0,0.5);
+    color: var(--primary-color);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreen-button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.2);
+}
+
+/* Додаємо підказки при наведенні */
+[aria-label]:hover::before {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: var(--text-primary);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    margin-bottom: 5px;
+}
+
+/* Стан паузи */
+.video-wrapper.paused .play-button {
+    display: none;
+}
+
+.episodes-list {
+    background: var(--dark-surface-2);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border-glow);
+    box-shadow: var(--neon-shadow);
+    width: 100%;
+    margin-left: 0;
+}
+
+.episodes-list h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.episodes-list h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-1);
+    opacity: 0.5;
+}
+
+.episodes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.episode-item {
+    background: var(--dark-surface);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-glow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.episode-item:hover {
+    transform: translateX(10px);
+    border-color: var(--primary-color);
+    box-shadow: var(--neon-shadow);
+    background: var(--gradient-2);
+}
+
+.episode-item.active {
+    background: var(--gradient-2);
+    border-color: var(--primary-color);
+    box-shadow: var(--neon-shadow);
+}
+
+.episode-item span {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Анімації для переключення серій */
+.video-wrapper.episode-changing {
+    animation: episodeChange 0.5s ease;
+}
+
+@keyframes episodeChange {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.98);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.video-preview {
+    transition: background-image 0.5s ease;
+}
+
+.video-frames {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--dark-surface-2);
+    border-radius: 16px;
+    border: 1px solid var(--border-glow);
+    box-shadow: var(--neon-shadow);
+}
+
+.video-frames h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.video-frames h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-1);
+    opacity: 0.5;
+}
+
+.frames-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.frame-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 16/9;
+    background: var(--dark-surface);
+    border: 1px solid var(--border-glow);
+    transition: all 0.3s ease;
+}
+
+.frame-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.frame-item:hover img {
+    transform: scale(1.05);
+}
+
+.frame-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.frame-item:hover .frame-overlay {
+    opacity: 1;
+}
+
+.view-frame {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: rgba(0, 230, 118, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.view-frame:hover {
+    background: var(--primary-color);
+    color: var(--dark-surface);
+    transform: scale(1.1);
+}
+
+.frame-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.frame-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.frame-modal-content {
+    position: relative;
+    width: 95vw;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.frame-modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    z-index: 1001;
+}
+
+.close-modal:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.prev-frame,
+.next-frame {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.prev-frame:hover,
+.next-frame:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-frame {
+    left: 20px;
+}
+
+.next-frame {
+    right: 20px;
+}
+
+.frame-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .frames-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .close-modal {
+        top: -50px;
+        right: 0;
+    }
+
+    .prev-frame,
+    .next-frame {
+        width: 40px;
+        height: 40px;
+    }
+
+    .prev-frame {
+        left: 10px;
+    }
+
+    .next-frame {
+        right: 10px;
+    }
+}
+
+.about-block {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    backdrop-filter: blur(5px);
+    color: white;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+@media (min-width: 769px) {
+    .nav-menu li:hover .about-block {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .about-block.fixed {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+.about-block h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+}
+
+.about-block p {
+    line-height: 1.6;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.about-block:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contacts-block {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    backdrop-filter: blur(5px);
+    color: white;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+@media (min-width: 769px) {
+    .nav-menu li:hover .contacts-block {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .contacts-block.fixed {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) !important;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+.contacts-block h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social-button svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.social-button span {
+    font-size: 1em;
+}
+
+.social-button.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-button.telegram {
+    background: #0088cc;
+}
+
+.social-button.email {
+    background: #ea4335;
+}
+
+.social-button:hover {
+    transform: translateX(10px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.email-block {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: text;
+}
+
+.email-block::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+.social-button.email {
+    position: relative;
+    overflow: visible;
+}
+
+.social-button.email:hover .email-block {
+    opacity: 1;
+    visibility: visible;
+}
+
+.email-block.fixed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--primary-color);
+    font-size: 18px;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.email-block.fixed::after {
+    display: none;
+}
+
+.email-block::selection,
+.email-block *::selection {
+    background: rgba(234, 67, 53, 0.3);
+    color: white;
+}
+
+.email-block::-moz-selection,
+.email-block *::-moz-selection {
+    background: rgba(234, 67, 53, 0.3);
+    color: white;
+}
+
+.order-button.email {
+    position: relative;
+    overflow: visible;
+}
+
+.order-email-block {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.order-email-block::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+.order-button.email:hover .order-email-block {
+    opacity: 1;
+    visibility: visible;
+}
+
+.order-email-block.fixed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--primary-color);
+    font-size: 18px;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    min-width: 300px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.order-email-block.fixed::after {
+    display: none;
+}
+
+.order-email-block::selection,
+.order-email-block *::selection {
+    background: rgba(234, 67, 53, 0.3);
+    color: white;
+}
+
+.order-email-block::-moz-selection,
+.order-email-block *::-moz-selection {
+    background: rgba(234, 67, 53, 0.3);
+    color: white;
+}
+
+/* Styles for desktop */
+@media (min-width: 1024px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+    }
+    .sidebar {
+        width: 250px;
+    }
+    .main-content {
+        flex: 1;
+    }
+}
+
+/* Styles for tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .main-content {
+        padding: 20px;
+    }
+    .episodes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Styles for phones */
+@media (max-width: 767px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: var(--dark-surface);
+        padding: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        height: auto;
+    }
+    .main-content {
+        padding: 15px 5px;
+        padding-top: 33vh;
+    }
+    .anime-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        order: 1;
+    }
+    .episodes-list {
+        order: 2;
+        margin-left: 10px;
+    }
+    .video-frames {
+        order: 4;
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    .episodes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    .anime-image {
+        margin-left: 40px;
+    }
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+    .nav-menu a {
+        font-size: 0.7rem;
+        padding: 0.3rem;
+    }
+    .nav-menu li:hover .about-block,
+    .nav-menu li:hover .contacts-block {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}

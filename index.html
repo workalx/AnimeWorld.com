@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime World </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="sidebar">
+            <div class="logo">
+                <img src="img/top.png" alt="Головний герой">
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li>
+                        <a href="#about">Про мене</a>
+                        <div class="about-block" id="about">
+                            <h3>Про мене</h3>
+                            <p>Привіт. Мене звати Саша (Алекс). Я автор цього сайту. Я начинаючий програміст, тому цей сайт не дуже дизайнерський, вибачте.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#contacts">Контакти</a>
+                        <div class="contacts-block" id="contacts">
+                            <h3>Мої контакти</h3>
+                            <div class="social-buttons">
+                                <a href="https://www.instagram.com/oleksandr.khalus?igsh=MW5wNTZwbmw1am9tOA==" target="_blank" class="social-button instagram">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                    <span>Instagram</span>
+                                </a>
+                                <a href="https://t.me/sanjakh" target="_blank" class="social-button telegram">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M9.417 15.181l-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.725.267 1.998-.931l3.622-16.972.001-.001c.321-1.496-.541-2.081-1.527-1.714l-21.29 8.151c-1.453.564-1.431 1.374-.247 1.741l5.443 1.693 12.643-7.911c.595-.394 1.136-.176.691.218z"/>
+                                    </svg>
+                                    <span>Telegram</span>
+                                </a>
+                                <a href="#" class="social-button email" id="email-button">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                    <span>Email</span>
+                                    <div class="email-block">
+                                        alexwork201006@gmail.com
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="order.html">Замовити сайт</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="main-content">
+            <section class="anime-info">
+                <div class="left-column">
+                    <div class="anime-image">
+                        <img src="img/foto.jpg" alt="Ісекай Нонбірі Нока">
+                    </div>
+                    <div class="episodes-list">
+                        <h2>Список серій</h2>
+                        <div class="episodes-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                            <div class="episode-item active" data-episode="1" data-video="https://drive.google.com/file/d/1ctldwMACIeYO4JQPNPBgd6s3TeumVrah/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>1 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="2" data-video="https://drive.google.com/file/d/1QaR4G8_2lMZvW-YrYTlg3nOYlCYB2SAW/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>2 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="3" data-video="https://drive.google.com/file/d/1pFYuWZ1KltXLSItm3UAyK_ipRL5h-QbU/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>3 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="4" data-video="https://drive.google.com/file/d/1oumcRYMgNC97OnWgcYtp1HLE6RFejCBn/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>4 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="5" data-video="https://drive.google.com/file/d/1UON5vo3stML3wF7yvdyaVkckVo2ttgZj/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>5 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="6" data-video="https://drive.google.com/file/d/18T-vgPdpZMdZYTptsx_3ONPdkytNbDpi/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>6 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="7" data-video="https://drive.google.com/file/d/1xwJn7PNSJBx4lVNHvoxhK6YfMzSWG1KJ/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>7 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="8" data-video="https://drive.google.com/file/d/1NlGj5KPPNm0csJMyqwmzyZwuo2lm2D4p/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>8 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="9" data-video="https://drive.google.com/file/d/1MZGpQ43QZUAjLp9KGr_sXxw78IFv_lVr/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>9 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="10" data-video="https://drive.google.com/file/d/1s44WgrtMn9gQkM5GMGUZafdfT7w_E7DD/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>10 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="11" data-video="https://drive.google.com/file/d/133ooSCzjnrzhUpgbhXgX-bAgNKBSCT85/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>11 серія</span>
+                            </div>
+                            <div class="episode-item" data-episode="12" data-video="https://drive.google.com/file/d/1kS2OKscCqPQD6TUeA17fEbaQXe5Gtxaj/preview" onclick="window.open(this.getAttribute('data-video'), '_blank');">
+                                <span>12 серія</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div class="anime-details">
+                        <h1>Фермерська життя в іншому світі</h1>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <h3>Рік випуску</h3>
+                                <p>2023</p>
+                            </div>
+                            <div class="info-item">
+                                <h3>Озвучка</h3>
+                                <p>AniDub</p>
+                            </div>
+                            <div class="info-item">
+                                <h3>Тривалість серії</h3>
+                                <p>24 хвилини</p>
+                            </div>
+                            <div class="info-item">
+                                <h3>Кількість серій</h3>
+                                <p>12 серій</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <h2>Опис</h2>
+                            <p>Головний герой, який працював офісним працівником, помирає від перевтоми і опиняється в іншому світі. Там він отримує можливість жити спокійним життям фермера в мальовничому селі. Аніме розповідає про його пригоди в новому світі, де він намагається створити ідеальне фермерське господарство та знайти своє місце в цьому світі.</p>
+                        </div>
+                    </div>
+                    <div class="video-frames">
+                        <h2>Кадри з відео</h2>
+                        <div class="frames-grid">
+                            <div class="frame-item" data-frame-index="0">
+                                <img src="img/frames/h280_51485206.jpg" alt="Кадр 1">
+                                <div class="frame-overlay">
+                                    <button class="view-frame" aria-label="Переглянути кадри">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M3 5v14h18V5H3zm16 12H5V7h14v10z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="frame-modal">
+        <div class="frame-modal-content">
+            <button class="close-modal" aria-label="Закрити">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+            <button class="prev-frame" aria-label="Попередній кадр">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+            </button>
+            <button class="next-frame" aria-label="Наступний кадр">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+            </button>
+            <img src="" alt="Кадр відео">
+            <div class="frame-counter">
+                <span class="current-frame">1</span>
+                <span>/</span>
+                <span class="total-frames">4</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const wrapper = document.querySelector('.video-wrapper');
+            const video = wrapper.querySelector('video');
+            const playButton = wrapper.querySelector('.play-button');
+            const progress = wrapper.querySelector('.progress');
+            const currentTime = wrapper.querySelector('.current-time');
+            const duration = wrapper.querySelector('.duration');
+            const volumeButton = wrapper.querySelector('.volume-button');
+            const volumeSlider = wrapper.querySelector('.volume-slider');
+            const volumeLevel = wrapper.querySelector('.volume-level');
+            const fullscreenButton = wrapper.querySelector('.fullscreen-button');
+            const controls = wrapper.querySelector('.video-controls');
+
+            let controlsTimeout;
+            let mouseOverControls = false;
+
+            // Функція форматування часу
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                seconds = Math.floor(seconds % 60);
+                return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            }
+
+            // Відтворення/пауза
+            function togglePlay() {
+                if (video.paused) {
+                    video.play();
+                    wrapper.classList.remove('paused');
+                    wrapper.classList.add('playing');
+                } else {
+                    video.pause();
+                    wrapper.classList.add('paused');
+                    wrapper.classList.remove('playing');
+                }
+                updatePlayButton();
+            }
+
+            // Оновлення кнопки відтворення
+            function updatePlayButton() {
+                playButton.style.opacity = video.paused ? '0.8' : '0';
+                if (video.paused) {
+                    wrapper.classList.add('paused');
+                    wrapper.classList.remove('playing');
+                } else {
+                    wrapper.classList.remove('paused');
+                    wrapper.classList.add('playing');
+                }
+            }
+
+            // Оновлення прогресу
+            function updateProgress() {
+                const percent = (video.currentTime / video.duration) * 100;
+                progress.style.width = `${percent}%`;
+                currentTime.textContent = formatTime(video.currentTime);
+            }
+
+            // Перемотування
+            function scrub(e) {
+                const scrubTime = (e.offsetX / this.offsetWidth) * video.duration;
+                video.currentTime = scrubTime;
+            }
+
+            // Гучність
+            function updateVolume(e) {
+                const rect = volumeSlider.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const volume = Math.max(0, Math.min(1, x / rect.width));
+                video.volume = volume;
+                volumeLevel.style.width = `${volume * 100}%`;
+                updateVolumeIcon(volume);
+            }
+
+            // Оновлення іконки гучності
+            function updateVolumeIcon(volume) {
+                const icon = volumeButton.querySelector('svg');
+                if (video.muted || volume === 0) {
+                    icon.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
+                } else if (volume < 0.5) {
+                    icon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>';
+                } else {
+                    icon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+                }
+            }
+
+            // Повноекранний режим
+            function toggleFullScreen() {
+                if (!document.fullscreenElement) {
+                    wrapper.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+
+            // Керування клавіатурою
+            function handleKeyboard(e) {
+                if (e.key === ' ' || e.key === 'k') {
+                    e.preventDefault();
+                    togglePlay();
+                } else if (e.key === 'f') {
+                    e.preventDefault();
+                    toggleFullScreen();
+                } else if (e.key === 'm') {
+                    e.preventDefault();
+                    video.muted = !video.muted;
+                    updateVolumeIcon(video.muted ? 0 : video.volume);
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    video.currentTime = Math.max(0, video.currentTime - 5);
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    video.currentTime = Math.min(video.duration, video.currentTime + 5);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    video.volume = Math.min(1, video.volume + 0.1);
+                    updateVolumeIcon(video.volume);
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    video.volume = Math.max(0, video.volume - 0.1);
+                    updateVolumeIcon(video.volume);
+                }
+            }
+
+            // Приховування контролів
+            function hideControls() {
+                if (!video.paused && !mouseOverControls) {
+                    wrapper.classList.add('controls-hidden');
+                }
+            }
+
+            function showControls() {
+                wrapper.classList.remove('controls-hidden');
+                clearTimeout(controlsTimeout);
+                if (!video.paused) {
+                    controlsTimeout = setTimeout(hideControls, 2000);
+                }
+            }
+
+            // Події
+            playButton.addEventListener('click', togglePlay);
+            video.addEventListener('click', togglePlay);
+            video.addEventListener('play', updatePlayButton);
+            video.addEventListener('pause', updatePlayButton);
+            video.addEventListener('timeupdate', updateProgress);
+            video.addEventListener('loadedmetadata', () => {
+                duration.textContent = formatTime(video.duration);
+            });
+
+            let mousedown = false;
+            const progressBar = wrapper.querySelector('.progress-bar');
+            progressBar.addEventListener('click', scrub);
+            progressBar.addEventListener('mousemove', (e) => mousedown && scrub.call(progressBar, e));
+            progressBar.addEventListener('mousedown', () => mousedown = true);
+            progressBar.addEventListener('mouseup', () => mousedown = false);
+            progressBar.addEventListener('mouseleave', () => mousedown = false);
+
+            volumeSlider.addEventListener('click', updateVolume);
+            volumeSlider.addEventListener('mousemove', (e) => mousedown && updateVolume(e));
+            volumeSlider.addEventListener('mousedown', () => mousedown = true);
+            volumeSlider.addEventListener('mouseup', () => mousedown = false);
+
+            volumeButton.addEventListener('click', () => {
+                video.muted = !video.muted;
+                updateVolumeIcon(video.muted ? 0 : video.volume);
+            });
+
+            fullscreenButton.addEventListener('click', toggleFullScreen);
+
+            // Керування клавіатурою
+            document.addEventListener('keydown', handleKeyboard);
+
+            // Події для показу/приховування контролів
+            wrapper.addEventListener('mousemove', showControls);
+            wrapper.addEventListener('mouseleave', hideControls);
+            controls.addEventListener('mouseenter', () => {
+                mouseOverControls = true;
+                showControls();
+            });
+            controls.addEventListener('mouseleave', () => {
+                mouseOverControls = false;
+                if (!video.paused) {
+                    controlsTimeout = setTimeout(hideControls, 2000);
+                }
+            });
+
+            // Подвійний клік для повноекранного режиму
+            wrapper.addEventListener('dblclick', toggleFullScreen);
+
+            // Початкова ініціалізація
+            updateVolumeIcon(video.volume);
+
+            // Додаємо функціонал перемикання серій
+            const episodeItems = document.querySelectorAll('.episode-item');
+            const videoElement = document.getElementById('anime-video');
+            const videoSource = document.getElementById('video-source');
+
+            episodeItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const videoUrl = this.dataset.video;
+
+                    // Оновлення активного класу
+                    episodeItems.forEach(ep => ep.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Зміна джерела відео
+                    videoSource.src = videoUrl;
+                    videoElement.load();
+                    videoElement.play();
+                });
+            });
+
+            // Додаємо функціонал для кадрів відео
+            const frameItems = document.querySelectorAll('.frame-item');
+            const frameModal = document.querySelector('.frame-modal');
+            const frameModalImg = frameModal.querySelector('img');
+            const closeModal = document.querySelector('.close-modal');
+            const prevFrame = document.querySelector('.prev-frame');
+            const nextFrame = document.querySelector('.next-frame');
+            const currentFrameSpan = document.querySelector('.current-frame');
+            const totalFramesSpan = document.querySelector('.total-frames');
+
+            // Масив з шляхами до кадрів
+            const frames = [
+                'img/frames/h280_51485206.jpg',
+                'img/frames/h280_51531703.jpg',
+                'img/frames/h280_51541262.jpg',
+                'img/frames/h280_51541263.jpg',
+                'img/frames/h280_51562150.jpg',
+                'img/frames/h280_51562151.jpg',
+                'img/frames/h280_51574255.jpg',
+                'img/frames/h280_51574256.jpg',
+                'img/frames/h280_51574257.jpg',
+                'img/frames/h280_51574258.jpg',
+                'img/frames/h280_51574259.jpg',
+                'img/frames/h280_51574260.jpg',
+                'img/frames/h280_51579650.jpg',
+                'img/frames/h280_51579651.jpg',
+                'img/frames/h280_51579652.jpg',
+                'img/frames/h280_51579653.jpg',
+                'img/frames/h280_51579654.jpg',
+                'img/frames/h280_51579656.jpg',
+                'img/frames/h280_51579657.jpg',
+                'img/frames/h280_51592607.jpg',
+                'img/frames/h280_51592609.jpg',
+                'img/frames/h280_51592610.jpg',
+                'img/frames/h280_51592611.jpg',
+                'img/frames/h280_51605631.jpg',
+                'img/frames/h280_51605632.jpg',
+                'img/frames/h280_51605633.jpg',
+                'img/frames/h280_51605634.jpg',
+                'img/frames/h280_51605635.jpg',
+                'img/frames/h280_51605636.jpg',
+                'img/frames/h280_51617102.jpg',
+                'img/frames/h280_51617103.jpg',
+                'img/frames/h280_51617104.jpg',
+                'img/frames/h280_51617105.jpg',
+                'img/frames/h280_51617106.jpg',
+                'img/frames/h280_51617107.jpg',
+                'img/frames/h280_51617108.jpg',
+                'img/frames/h280_51617109.jpg',
+                'img/frames/h280_51617110.jpg',
+                'img/frames/h280_51629161.jpg',
+                'img/frames/h280_51642934.jpg',
+                'img/frames/h280_51642936.jpg',
+                'img/frames/h280_51642938.jpg',
+                'img/frames/h280_51649102.jpg',
+                'img/frames/h280_51649103.jpg'
+            ];
+
+            let currentFrameIndex = 0;
+
+            // Функція для оновлення кадру
+            function updateFrame(index) {
+                currentFrameIndex = index;
+                frameModalImg.src = frames[currentFrameIndex];
+                currentFrameSpan.textContent = currentFrameIndex + 1;
+                totalFramesSpan.textContent = frames.length;
+                frameModalImg.style.maxWidth = '100%';
+                frameModalImg.style.maxHeight = '100%';
+                frameModalImg.style.width = 'auto';
+                frameModalImg.style.height = 'auto';
+                frameModalImg.style.objectFit = 'contain';
+            }
+
+            frameItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const frameIndex = parseInt(this.dataset.frameIndex);
+                    updateFrame(frameIndex);
+                    frameModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Обробники для кнопок навігації
+            prevFrame.addEventListener('click', () => {
+                const newIndex = (currentFrameIndex - 1 + frames.length) % frames.length;
+                updateFrame(newIndex);
+            });
+
+            nextFrame.addEventListener('click', () => {
+                const newIndex = (currentFrameIndex + 1) % frames.length;
+                updateFrame(newIndex);
+            });
+
+            // Обробники для клавіш
+            document.addEventListener('keydown', (e) => {
+                if (frameModal.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        frameModal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    } else if (e.key === 'ArrowLeft') {
+                        const newIndex = (currentFrameIndex - 1 + frames.length) % frames.length;
+                        updateFrame(newIndex);
+                    } else if (e.key === 'ArrowRight') {
+                        const newIndex = (currentFrameIndex + 1) % frames.length;
+                        updateFrame(newIndex);
+                    }
+                }
+            });
+
+            closeModal.addEventListener('click', () => {
+                frameModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            frameModal.addEventListener('click', (e) => {
+                if (e.target === frameModal) {
+                    frameModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Додаємо обробник для кнопки "Про мене"
+            const aboutLink = document.querySelector('a[href="#about"]');
+            const aboutBlock = document.querySelector('.about-block');
+            let isAboutVisible = false;
+
+            aboutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation(); // Зупиняємо подальше розповсюдження події
+                isAboutVisible = !isAboutVisible;
+                aboutBlock.style.display = isAboutVisible ? 'block' : 'none';
+            });
+
+            // Закриваємо блок "Про мене" при кліку на будь-яку частину сайту
+            document.addEventListener('click', function(e) {
+                if (isAboutVisible && !aboutBlock.contains(e.target) && e.target !== aboutLink) {
+                    aboutBlock.style.display = 'none';
+                    isAboutVisible = false;
+                }
+            });
+
+            // Запобігаємо закриттю при кліку на сам блок
+            aboutBlock.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+
+            // Додаємо обробник для кнопки "Контакти"
+            const contactsLink = document.querySelector('a[href="#contacts"]');
+            const contactsBlock = document.querySelector('.contacts-block');
+            let isContactsVisible = false;
+
+            contactsLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                isContactsVisible = !isContactsVisible;
+                contactsBlock.style.display = isContactsVisible ? 'block' : 'none';
+            });
+
+            // Закриваємо блок "Контакти" при кліку на будь-яку частину сайту
+            document.addEventListener('click', function(e) {
+                if (isContactsVisible && !contactsBlock.contains(e.target) && e.target !== contactsLink) {
+                    contactsBlock.style.display = 'none';
+                    isContactsVisible = false;
+                }
+            });
+
+            // Запобігаємо закриттю при кліку на сам блок
+            contactsBlock.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+
+            // Додаємо обробник для кнопки Email
+            const emailButton = document.querySelector('.social-button.email');
+            const emailBlock = document.querySelector('.email-block');
+            let isEmailFixed = false;
+
+            emailButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (!isEmailFixed) {
+                    emailBlock.classList.add('fixed');
+                    isEmailFixed = true;
+                } else {
+                    emailBlock.classList.remove('fixed');
+                    isEmailFixed = false;
+                }
+            });
+
+            // Закриваємо фіксований блок email при кліку на будь-яку частину сайту
+            document.addEventListener('click', function(e) {
+                if (isEmailFixed && !emailBlock.contains(e.target) && e.target !== emailButton) {
+                    emailBlock.classList.remove('fixed');
+                    isEmailFixed = false;
+                }
+            });
+
+            // Запобігаємо закриттю при кліку на сам блок
+            emailBlock.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html> 
